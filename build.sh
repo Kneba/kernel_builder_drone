@@ -59,7 +59,7 @@ NAMA=MORBID
 
 JENIS=HMP
 
-VARIAN=Lite
+VARIAN=LITE
 # Build Type
 BUILD_TYPE="Nightly"
 
