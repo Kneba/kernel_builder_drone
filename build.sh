@@ -59,7 +59,7 @@ NAMA=MORBID
 
 JENIS=HMP
 
-VARIAN=LTO
+VARIAN=Lite
 # Build Type
 BUILD_TYPE="Nightly"
 
@@ -320,10 +320,10 @@ build_kernel() {
 				CROSS_COMPILE=aarch64-linux-gnu- \
 				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 				AR=llvm-ar \
-                NM=llvm-nm \
-                OBJCOPY=llvm-objcopy \
-                OBJDUMP=llvm-objdump \
-                CLANG_TRIPLE=aarch64-linux-gnu- \
+				NM=llvm-nm \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump \
+				CLANG_TRIPLE=aarch64-linux-gnu- \
 				STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "gcc" ]
 	then
@@ -333,15 +333,15 @@ build_kernel() {
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		make -j"$PROCS"  O=out \
-					CC=clang \
-					CROSS_COMPILE=aarch64-linux-gnu- \
-					CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-					AR=llvm-ar \
-                    NM=llvm-nm \
-                    OBJCOPY=llvm-objcopy \
-                    OBJDUMP=llvm-objdump \
-                    CLANG_TRIPLE=aarch64-linux-gnu- \
-				    STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
+				CC=clang \
+				CROSS_COMPILE=aarch64-linux-gnu- \
+				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+				AR=llvm-ar \
+				NM=llvm-nm \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump \
+				CLANG_TRIPLE=aarch64-linux-gnu- \
+				STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
 	fi
 
 		BUILD_END=$(date +"%s")
