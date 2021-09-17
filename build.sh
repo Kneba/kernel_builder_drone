@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Cliquers
 
-JENIS=HMP
+JENIS=EAS
 
 VARIAN=LITE
 # Build Type
