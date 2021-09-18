@@ -431,7 +431,7 @@ gen_zip() {
         <b>Changelog 🆑 </b>
         - <code>$COMMIT_HEAD</code>
         <b></b>
-        #$BUILD_TYPE #$JENIS #$VARIAN"
+        #$BUILD_TYPE #$JENIS #$BUILD_TYPE"
         
 	cd ..
 }
