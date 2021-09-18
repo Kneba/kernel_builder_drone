@@ -67,6 +67,9 @@ BUILD_TYPE="Nightly"
 # 'clang' or 'clangxgcc' or 'gcc'
 COMPILER=gcc
 
+# Message on anykernel when installation
+MESSAGE="don't blame me if u get poor battery backup or weak performance . Do with Your Own Risk."
+
 # Kernel is LTO
 LTO=0
 
@@ -383,7 +386,7 @@ gen_zip() {
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=$KBUILD_BUILD_USER @$KBUILD_BUILD_HOST/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
-	sed -i "s/message.word=.*/message.word=don't blame me if u get poor battery backup or weak performance./g" anykernel.sh
+	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
 	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
 
 
