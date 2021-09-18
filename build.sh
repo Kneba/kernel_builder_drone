@@ -172,7 +172,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 		GCC32_DIR=$KERNEL_DIR/gcc32
 
 	msg "|| Cloning Anykernel ||"
-        git clone https://github.com/fajar4561/Anykernel.git -b master AnyKernel3
+        git clone https://github.com/BENKz29/Anykernel.git -b master AnyKernel3
 
 	if [ $BUILD_DTBO = 1 ]
 	then
@@ -195,8 +195,8 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="Nobody"
-    export KBUILD_BUILD_HOST="Unknown"
+	export KBUILD_BUILD_USER="cliquers"
+    export KBUILD_BUILD_HOST="still-scary"
     export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
@@ -419,16 +419,16 @@ gen_zip() {
         <b>Date 📅 </b>
         -<code>$DATE2</code>
         
-        <b>Linux Version 📜</b>
+        <b>Linux Version 🐧 </b>
         -<code>$LINUXVER</code>
         
-         <b>Compiler 💻 </b>
+         <b>Compiler 💿 </b>
         -<code>$KBUILD_COMPILER_STRING</code>
         
         <b>Device 📱 </b>
         -<code>$DEVICE ($MANUFACTURERINFO)</code>
 
-        <b>Changelog 📣 </b>
+        <b>Changelog 🆑 </b>
         - <code>$COMMIT_HEAD</code>
         <b></b>
         #$BUILD_TYPE #$JENIS #$VARIAN"
