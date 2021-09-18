@@ -416,19 +416,19 @@ gen_zip() {
         -F caption="✅<b>Build Done</b>
         - <code>$((DIFF / 60)) minute(s) $((DIFF % 60)) second(s) </code>
         
-        <b>Date 📅 </b>
+        <b>📅 Build Date: </b>
         -<code>$DATE2</code>
         
-        <b>Linux Version 🐧 </b>
+        <b>🐧 Linux Version: </b>
         -<code>$LINUXVER</code>
         
-         <b>Compiler 💿 </b>
+         <b>💿 Compiler: </b>
         -<code>$KBUILD_COMPILER_STRING</code>
         
-        <b>Device 📱 </b>
+        <b>📱 Device: </b>
         -<code>$DEVICE ($MANUFACTURERINFO)</code>
 
-        <b>Changelog 🆑 </b>
+        <b>🆑 Changelog: </b>
         - <code>$COMMIT_HEAD</code>
         <b></b>
         #$NAMA #$JENIS #$BUILD_TYPE"
