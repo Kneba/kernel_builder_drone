@@ -55,7 +55,7 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=Cliquers
+NAMA=MORBID
 
 JENIS=EAS
 
