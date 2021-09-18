@@ -59,7 +59,7 @@ NAMA=MORBID
 
 JENIS=EAS
 
-VARIAN=Lite
+VARIAN=UC
 # Build Type
 BUILD_TYPE="Nightly"
 
