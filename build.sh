@@ -55,7 +55,7 @@ DEFCONFIG=asus_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=CLIQUERS
+NAMA=Cliquers
 
 JENIS=EAS
 
