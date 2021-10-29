@@ -59,7 +59,7 @@ NAMA=FOX
 
 JENIS=EAS
 
-VARIAN=UC
+VARIAN=OC
 # Build Type
 BUILD_TYPE="Nightly"
 
