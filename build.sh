@@ -55,17 +55,17 @@ DEFCONFIG=asus_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=Cliquers
+NAMA=FOX
 
 JENIS=EAS
 
-VARIAN=UV
+VARIAN=UC
 # Build Type
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=gcc49
+COMPILER=clang
 
 # Message on anykernel when installation
 MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
@@ -141,7 +141,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang -b master clang
+		git clone --depth=1 https://github.com/Kneba/venom-clang -b master clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
@@ -172,7 +172,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 		GCC32_DIR=$KERNEL_DIR/gcc32
 
 	msg "|| Cloning Anykernel ||"
-        git clone https://github.com/Kneba/Anykernel.git -b master AnyKernel3
+        git clone https://github.com/Kneba/Anykernel3.git -b fox AnyKernel3
 
 	if [ $BUILD_DTBO = 1 ]
 	then
@@ -195,9 +195,9 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="little"
-    export KBUILD_BUILD_HOST="cluster"
-    export KBUILD_BUILD_VERSION="49"
+	export KBUILD_BUILD_USER="venom"
+    export KBUILD_BUILD_HOST="carnage"
+    export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
