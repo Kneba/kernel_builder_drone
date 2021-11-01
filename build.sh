@@ -55,11 +55,10 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TOM
-
+NAMA=TheOneMemory
 JENIS=HMP
+VARIAN=LTO
 
-VARIAN=NLV
 # Build Type
 BUILD_TYPE="Nightly"
 
@@ -71,7 +70,7 @@ COMPILER=gcc
 MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
 
 # Kernel is LTO
-LTO=0
+LTO=1
 
 # Specify linker.
 # 'ld.lld'(default)
@@ -186,7 +185,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE2"
+    KERNELNAME="$NAMA-$VARIAN-$JENIS-$LINUXVER-$DATE2"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
