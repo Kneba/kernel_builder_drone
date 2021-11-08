@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="4"
+    export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -327,20 +327,22 @@ build_kernel() {
 	if [ $COMPILER = "clang" ]
 	then
 		make -j"$PROCS" O=out \
-		        CC=clang \
+				CC=clang \
 				CROSS_COMPILE=aarch64-linux-gnu- \
 				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 				AR=llvm-ar \
-                NM=llvm-nm \
-                OBJCOPY=llvm-objcopy \
-                OBJDUMP=llvm-objdump \
-                CLANG_TRIPLE=aarch64-linux-gnu- \
+				NM=llvm-nm \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump \
+				CLANG_TRIPLE=aarch64-linux-gnu- \
 				STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
+
 	elif [ $COMPILER = "gcc49" ]
 	then
 		make -j"$PROCS" O=out \
 				CROSS_COMPILE_ARM32=arm-linux-androideabi- \
 				CROSS_COMPILE=aarch64-linux-android- "${MAKE[@]}" 2>&1 | tee build.log
+
 	elif [ $COMPILER = "gcc" ]
 	then
 		make -j"$PROCS" O=out \
@@ -349,18 +351,19 @@ build_kernel() {
 				AR=aarch64-elf-ar \
 				OBJDUMP=aarch64-elf-objdump \
 				STRIP=aarch64-elf-strip "${MAKE[@]}" 2>&1 | tee build.log
+
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		make -j"$PROCS"  O=out \
-					CC=clang \
-					CROSS_COMPILE=aarch64-linux-gnu- \
-					CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-					AR=llvm-ar \
-                    NM=llvm-nm \
-                    OBJCOPY=llvm-objcopy \
-                    OBJDUMP=llvm-objdump \
-                    CLANG_TRIPLE=aarch64-linux-gnu- \
-				    STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
+				CC=clang \
+				CROSS_COMPILE=aarch64-linux-gnu- \
+				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+				AR=llvm-ar \
+				NM=llvm-nm \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump \
+				CLANG_TRIPLE=aarch64-linux-gnu- \
+				STRIP=llvm-strip "${MAKE[@]}" 2>&1 | tee build.log
 	fi
 
 		BUILD_END=$(date +"%s")
@@ -374,7 +377,7 @@ build_kernel() {
 				msg "|| Building DTBO ||"
 				tg_post_msg "<code>Building DTBO..</code>"
 				python2 "$KERNEL_DIR/scripts/ufdt/libufdt/utils/src/mkdtboimg.py" \
-					create "$KERNEL_DIR/out/arch/arm64/boot/dtbo.img" --page_size=4096 "$KERNEL_DIR/out/arch/arm64/boot/dts/$DTBO_PATH"
+				create "$KERNEL_DIR/out/arch/arm64/boot/dtbo.img" --page_size=4096 "$KERNEL_DIR/out/arch/arm64/boot/dts/$DTBO_PATH"
 			fi
 				gen_zip
 			else
@@ -405,7 +408,6 @@ gen_zip() {
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
 	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
 
-
 	zip -r9 "$ZIPNAME" * -x .git README.md anykernel-real.sh .gitignore zipsigner* *.zip
 
 	## Prepare a final zip variable
@@ -434,7 +436,7 @@ gen_zip() {
         - <code>$COMMIT_HEAD</code>
         <b></b>
         #$NAMA #$JENIS #$BUILD_TYPE"
-        
+
 	cd ..
 }
 
