@@ -56,10 +56,9 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
 NAMA=FOX
-
 JENIS=LTO
+VARIAN=NLV
 
-VARIAN=LV
 # Build Type
 BUILD_TYPE="Nightly"
 
@@ -132,8 +131,8 @@ LINUXVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 
 # Set Date
-DATE=$(TZ=Asia/Jakarta date +"%Y%m%d_%H%M")
-DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
+DATE=$(TZ=Asia/Tokyo date +"%Y%m%d_%H%M")
+DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -197,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -400,7 +399,7 @@ gen_zip() {
         cp -af anykernel-real.sh anykernel.sh
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
-	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
+	sed -i "s/kernel.compiler=.*/kernel.compiler=Eva-GCC/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
