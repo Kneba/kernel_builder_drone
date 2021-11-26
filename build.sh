@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -400,7 +400,7 @@ gen_zip() {
 	fi
 	cd AnyKernel3 || exit
         cp -af anykernel-real.sh anykernel.sh
-	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
+	sed -i "s/kernel.string=.*/kernel.string=$NAMA/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
