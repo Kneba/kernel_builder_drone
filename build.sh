@@ -140,7 +140,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang clang
+		git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="3"
+    export KBUILD_BUILD_VERSION="24"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
