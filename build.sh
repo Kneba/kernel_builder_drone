@@ -185,7 +185,7 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE2"
+    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
@@ -348,8 +348,8 @@ build_kernel() {
 				CROSS_COMPILE=aarch64-elf- \
 				AR=aarch64-elf-ar \
 				OBJDUMP=aarch64-elf-objdump \
-				STRIP=aarch64-elf-strip  \
-				LINKER=ld.lld "${MAKE[@]}" 2>&1 | tee build.log
+				STRIP=aarch64-elf-strip \
+				LD=ld.lld "${MAKE[@]}" 2>&1 | tee build.log
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
