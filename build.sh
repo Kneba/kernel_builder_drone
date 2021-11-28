@@ -149,7 +149,7 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-androideabi-4.9 $KERNEL_DIR/gcc32
 	elif [ $COMPILER = "gcc" ]
 	then
-		msg "|| Cloning GCC  ||"
+		msg "|| Cloning Eva GCC  ||"
 		git clone https://github.com/Havoc-Devices/gcc-arm64.git $KERNEL_DIR/gcc64 --depth=1
 		git clone https://github.com/Havoc-Devices/gcc-arm.git $KERNEL_DIR/gcc32 --depth=1
 
@@ -185,7 +185,7 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE2"
+    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
@@ -401,7 +401,7 @@ gen_zip() {
         cp -af anykernel-real.sh anykernel.sh
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
-	sed -i "s/kernel.compiler=.*/kernel.compiler=Eva-GCC/g" anykernel.sh
+	sed -i "s/kernel.compiler=.*/kernel.compiler=Eva GCC/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
@@ -435,7 +435,7 @@ gen_zip() {
         <b>🆑 Changelog: </b>
         - <code>$COMMIT_HEAD</code>
         <b></b>
-        #$NAMA #$JENIS #$BUILD_TYPE"
+        #$NAMA #$JENIS #$VARIAN"
         
 	cd ..
 }
