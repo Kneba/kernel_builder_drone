@@ -150,8 +150,8 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 	elif [ $COMPILER = "gcc" ]
 	then
 		msg "|| Cloning Eva GCC  ||"
-		git clone https://github.com/mvaisakh/gcc-arm64.git $KERNEL_DIR/gcc64 --depth=1
-		git clone https://github.com/mvaisakh/gcc-arm.git $KERNEL_DIR/gcc32 --depth=1
+		git clone https://github.com/Havoc-Devices/gcc-arm64.git $KERNEL_DIR/gcc64 --depth=1
+		git clone https://github.com/Havoc-Devices/gcc-arm.git $KERNEL_DIR/gcc32 --depth=1
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
