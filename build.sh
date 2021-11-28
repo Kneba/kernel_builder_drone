@@ -149,9 +149,9 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-androideabi-4.9 $KERNEL_DIR/gcc32
 	elif [ $COMPILER = "gcc" ]
 	then
-		msg "|| Cloning GCC  ||"
-		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-master $KERNEL_DIR/gcc64
-		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-master $KERNEL_DIR/gcc32
+		msg "|| Cloning Eva GCC  ||"
+		git clone https://github.com/mvaisakh/gcc-arm64.git $KERNEL_DIR/gcc64 --depth=1
+		git clone https://github.com/mvaisakh/gcc-arm.git $KERNEL_DIR/gcc32 --depth=1
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -348,7 +348,9 @@ build_kernel() {
 				CROSS_COMPILE=aarch64-elf- \
 				AR=aarch64-elf-ar \
 				OBJDUMP=aarch64-elf-objdump \
-				STRIP=aarch64-elf-strip "${MAKE[@]}" 2>&1 | tee build.log
+				STRIP=aarch64-elf-strip  \
+				LD="ld.lld"
+
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		make -j"$PROCS"  O=out \
