@@ -349,7 +349,7 @@ build_kernel() {
 				AR=aarch64-elf-ar \
 				OBJDUMP=aarch64-elf-objdump \
 				STRIP=aarch64-elf-strip  \
-				LD="ld.lld"
+				LINKER=ld.lld "${MAKE[@]}" 2>&1 | tee build.log
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
