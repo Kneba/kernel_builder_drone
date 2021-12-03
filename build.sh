@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="43"
+    export KBUILD_BUILD_VERSION="56"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
