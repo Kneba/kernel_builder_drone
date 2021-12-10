@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=TheOneMemory
 JENIS=HMP
-VARIAN=LV
+VARIAN=NLV
 
 # Build Type
 BUILD_TYPE="Nightly"
@@ -185,7 +185,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$LINUXVER"
+    KERNELNAME="$NAMA-$VARIAN-$LINUXVER"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
