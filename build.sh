@@ -55,7 +55,7 @@ DEFCONFIG=fox_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TOM
+NAMA=FOX
 JENIS=LTO
 VARIAN=NLV
 
@@ -150,8 +150,8 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 	elif [ $COMPILER = "gcc" ]
 	then
 		msg "|| Cloning Eva GCC  ||"
-		git clone https://github.com/Havoc-Devices/gcc-arm64.git $KERNEL_DIR/gcc64 --depth=1
-		git clone https://github.com/Havoc-Devices/gcc-arm.git $KERNEL_DIR/gcc32 --depth=1
+		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-master $KERNEL_DIR/gcc64
+		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-master $KERNEL_DIR/gcc32
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
@@ -196,7 +196,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="LetThereBe"
     export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="2"
+    export KBUILD_BUILD_VERSION="3"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
