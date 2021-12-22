@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=TheOneMemory
 JENIS=HMP
-VARIAN=Neva
+VARIAN=Lovia
 
 # Build Type
 BUILD_TYPE="Nightly"
