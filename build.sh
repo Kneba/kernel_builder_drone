@@ -55,7 +55,7 @@ DEFCONFIG=fox_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=FOX
+NAMA=TheOneMemory
 JENIS=LTO
 VARIAN=LV
 
