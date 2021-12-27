@@ -56,8 +56,8 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
 NAMA=TheOneMemory
-JENIS=CAF
-VARIAN=LV
+JENIS=HMP
+VARIAN=Hayzel
 
 # Build Type
 BUILD_TYPE="Nightly"
