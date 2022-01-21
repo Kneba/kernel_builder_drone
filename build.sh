@@ -194,9 +194,9 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="LetThereBe"
-    export KBUILD_BUILD_HOST="Carnage"
-    export KBUILD_BUILD_VERSION="1447"
+	export KBUILD_BUILD_USER="queen"
+    export KBUILD_BUILD_HOST="18ded16aaef9"
+    export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -204,14 +204,19 @@ exports() {
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin/:$PATH
+		LLD_VER="$("$TC_DIR"/bin/ld.lld --version | head -n 1)"
+		export KBUILD_COMPILER_STRING="$KBUILD_COMPILER_STRING with $LLD_VER"
+
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin:$GCC64_DIR/bin:$GCC32_DIR/bin:/usr/bin:$PATH
+
 	elif [ $COMPILER = "gcc49" ]
 	then
 		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-android-gcc --version | head -n 1)
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
+
 	elif [ $COMPILER = "gcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
