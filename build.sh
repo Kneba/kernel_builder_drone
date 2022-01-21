@@ -55,7 +55,7 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TheOneMemory
+NAMA=Electro-Wizard
 JENIS=HMP
 VARIAN=LV
 
@@ -140,7 +140,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
+		git clone --depth=1 https://github.com/Kneba/venom-clang clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
@@ -171,7 +171,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 		GCC32_DIR=$KERNEL_DIR/gcc32
 
 	msg "|| Cloning Anykernel ||"
-        git clone https://github.com/Kneba/Anykernel3.git -b tom AnyKernel3
+        git clone https://github.com/Tiktodz/Anykernel3.git -b main AnyKernel3
 
 	if [ $BUILD_DTBO = 1 ]
 	then
@@ -403,7 +403,7 @@ gen_zip() {
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
-	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
+	sed -i "s/kernel.made=.*/kernel.made=Tiktod/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
 	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
