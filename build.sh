@@ -60,7 +60,7 @@ JENIS=NLV
 VARIAN=Hayzel
 
 # Build Type
-BUILD_TYPE="Nightly"
+BUILD_TYPE="RS"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
@@ -206,14 +206,17 @@ exports() {
 		PATH=$TC_DIR/bin/:$PATH
 		LLD_VER="$("$TC_DIR"/bin/ld.lld --version | head -n 1)"
 		export KBUILD_COMPILER_STRING="$KBUILD_COMPILER_STRING with $LLD_VER"
+
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin:$GCC64_DIR/bin:$GCC32_DIR/bin:/usr/bin:$PATH
+
 	elif [ $COMPILER = "gcc49" ]
 	then
 		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-android-gcc --version | head -n 1)
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
+
 	elif [ $COMPILER = "gcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
@@ -404,7 +407,7 @@ gen_zip() {
         cp -af anykernel-real.sh anykernel.sh
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$VARIAN/g" anykernel.sh
-	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
+	sed -i "s/kernel.compiler=.*/kernel.compiler=Venom-Clang/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
