@@ -205,8 +205,6 @@ exports() {
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin/:$PATH
-		LLD_VER="$("$TC_DIR"/bin/ld.lld --version | head -n 1)"
-		export KBUILD_COMPILER_STRING="$KBUILD_COMPILER_STRING with $LLD_VER"
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
@@ -333,7 +331,7 @@ build_kernel() {
 	if [ $COMPILER = "clang" ]
 	then
 		make -j"$PROCS" O=out \
-		        CC=clang \
+				CC=clang \
 				CROSS_COMPILE=aarch64-linux-gnu- \
 				CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 				AR=llvm-ar \
