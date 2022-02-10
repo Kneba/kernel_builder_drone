@@ -59,7 +59,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 NAMA=TheOneMemory
 JENIS=EAS
 VARIAN=LV
-CODENAME=Onyx
+CODENAME=Hayzel
 
 # Build Type
 BUILD_TYPE="Nightly"
