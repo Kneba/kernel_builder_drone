@@ -133,8 +133,8 @@ LINUXVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 
 # Set Date
-DATE=$(TZ=Asia/Bangkok date +"%Y%m%d_%H%M")
-DATE2=$(TZ=Asia/Bangkok date +"%Y%m%d")
+DATE=$(TZ=Asia/Hanoi date +"%Y%m%d_%H%M")
+DATE2=$(TZ=Asia/Hanoi date +"%Y%m%d")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -196,9 +196,9 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="asus"
+	export KBUILD_BUILD_USER="zenfone"
     export KBUILD_BUILD_HOST="notebook"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
