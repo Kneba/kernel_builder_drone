@@ -59,6 +59,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 NAMA=TheOneMemory
 JENIS=EAS
 VARIAN=LV
+CODENAME=Onyx
 
 # Build Type
 BUILD_TYPE="Nightly"
@@ -71,7 +72,7 @@ COMPILER=clang
 MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
 
 # Kernel is LTO
-LTO=1
+LTO=0
 
 # Specify linker.
 # 'ld.lld'(default)
@@ -132,8 +133,8 @@ LINUXVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 
 # Set Date
-DATE=$(TZ=Asia/Tokyo date +"%Y%m%d_%H%M")
-DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
+DATE=$(TZ=Asia/Bangkok date +"%Y%m%d_%H%M")
+DATE2=$(TZ=Asia/Bangkok date +"%Y%m%d")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -186,7 +187,7 @@ DATE2=$(TZ=Asia/Tokyo date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER"
+    KERNELNAME="$NAMA-$CODENAME-$JENIS-$VARIAN-$LINUXVER"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
@@ -403,8 +404,8 @@ gen_zip() {
 	fi
 	cd AnyKernel3 || exit
         cp -af anykernel-real.sh anykernel.sh
-	sed -i "s/kernel.string=.*/kernel.string=$NAMA/g" anykernel.sh
-	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
+	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$CODENAME/g" anykernel.sh
+	sed -i "s/kernel.for=.*/kernel.for=$JENIS-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
 	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
