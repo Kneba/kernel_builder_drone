@@ -195,9 +195,9 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="drone"
-    export KBUILD_BUILD_HOST="camp"
-    export KBUILD_BUILD_VERSION="1"
+	export KBUILD_BUILD_USER="asus"
+    export KBUILD_BUILD_HOST="notebook"
+    export KBUILD_BUILD_VERSION="2"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
