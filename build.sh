@@ -66,7 +66,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=gcc49
+COMPILER=clang
 
 # Message on anykernel when installation
 MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
@@ -198,7 +198,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="asus-inc"
     export KBUILD_BUILD_HOST="zenbook"
-    export KBUILD_BUILD_VERSION="3"
+    export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
