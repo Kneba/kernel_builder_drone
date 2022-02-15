@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
 NAMA=TheOneMemory
-JENIS=EAS
+JENIS=HMP
 VARIAN=LV
 CODENAME=Hayzel
 
@@ -173,7 +173,7 @@ DATE2=$(TZ=Asia/Hanoi date +"%Y%m%d")
 		GCC32_DIR=$KERNEL_DIR/gcc32
 
 	msg "|| Cloning Anykernel ||"
-        git clone https://github.com/Kneba/AnyKernel3.git -b eas AnyKernel3
+        git clone https://github.com/Kneba/AnyKernel3.git -b tom AnyKernel3
 
 	if [ $BUILD_DTBO = 1 ]
 	then
@@ -197,8 +197,8 @@ setversioning() {
 
 exports() {
 	export KBUILD_BUILD_USER="queen"
-    export KBUILD_BUILD_HOST="zenbook"
-    export KBUILD_BUILD_VERSION="2"
+    export KBUILD_BUILD_HOST="codeaurora"
+    export KBUILD_BUILD_VERSION="1"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
