@@ -66,7 +66,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=clang
+COMPILER=gcc
 
 # Message on anykernel when installation
 MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
@@ -152,8 +152,8 @@ DATE2=$(TZ=Asia/Hanoi date +"%Y%m%d")
 	elif [ $COMPILER = "gcc" ]
 	then
 		msg "|| Cloning Eva GCC  ||"
-		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-master $KERNEL_DIR/gcc64
-		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-master $KERNEL_DIR/gcc32
+		git clone https://github.com/kdrag0n/aarch64-elf-gcc --depth=1 $KERNEL_DIR/gcc64
+		git clone https://github.com/kdrag0n/arm-eabi-gcc --depth=1 $KERNEL_DIR/gcc32
 
 	elif [ $COMPILER = "clangxgcc" ]
 	then
@@ -198,7 +198,7 @@ setversioning() {
 exports() {
 	export KBUILD_BUILD_USER="queen"
     export KBUILD_BUILD_HOST="codeaurora"
-    export KBUILD_BUILD_VERSION="2"
+    export KBUILD_BUILD_VERSION="3"
 	export ARCH=arm64
 	export SUBARCH=arm64
 
@@ -350,12 +350,7 @@ build_kernel() {
 	then
 		make -j"$PROCS" O=out \
 				CROSS_COMPILE_ARM32=arm-eabi- \
-				CROSS_COMPILE=aarch64-elf- \
-				AR=aarch64-elf-ar \
-				OBJDUMP=aarch64-elf-objdump \
-				STRIP=aarch64-elf-strip \
-				LD=ld.lld "${MAKE[@]}" 2>&1 | tee build.log
-
+				CROSS_COMPILE=aarch64-elf- "${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		make -j"$PROCS"  O=out \
