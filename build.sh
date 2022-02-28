@@ -55,9 +55,9 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TheOneMemory
+NAMA=TOM
 JENIS=LV
-VARIAN=Hayzel
+VARIAN=Cat
 
 # Build Type
 BUILD_TYPE="RS"
@@ -196,7 +196,7 @@ setversioning() {
 exports() {
     export KBUILD_BUILD_USER="Ka"
     export KBUILD_BUILD_HOST="Neba"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="1434"
     export ARCH=arm64
     export SUBARCH=arm64
 
