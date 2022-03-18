@@ -55,9 +55,9 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TOM
+NAMA=TOMCat
 JENIS=LV
-VARIAN=Cat
+VARIAN=HMP
 
 # Build Type
 BUILD_TYPE="RS"
@@ -140,7 +140,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/Kneba/venom-clang clang
+		git clone --depth=1 https://gitlab.com/LeCmnGend/proton-clang -b clang-14 clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
