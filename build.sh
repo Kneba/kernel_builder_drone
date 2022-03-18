@@ -195,8 +195,8 @@ setversioning() {
 
 exports() {
     export KBUILD_BUILD_USER="Ka"
-    export KBUILD_BUILD_HOST="Neba"
-    export KBUILD_BUILD_VERSION="2"
+    export KBUILD_BUILD_HOST="drone"
+    export KBUILD_BUILD_VERSION="3"
     export ARCH=arm64
     export SUBARCH=arm64
 
