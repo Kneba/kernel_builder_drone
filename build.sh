@@ -55,12 +55,12 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TOMCat
-JENIS=NLV
+NAMA=perf
+JENIS=LV
 VARIAN=HMP
 
 # Build Type
-BUILD_TYPE="RS"
+BUILD_TYPE="PORT"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
@@ -140,7 +140,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang -b master clang
+		git clone --depth=1 https://github.com/Kneba/venom-clang -b master clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
@@ -195,7 +195,7 @@ setversioning() {
 
 exports() {
     export KBUILD_BUILD_USER="queen"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
     export ARCH=arm64
     export SUBARCH=arm64
 
