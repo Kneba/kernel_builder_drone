@@ -55,8 +55,8 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=perf
-JENIS=LV
+NAMA=ew
+JENIS=CAF
 VARIAN=HMP
 
 # Build Type
@@ -195,7 +195,7 @@ setversioning() {
 
 exports() {
     export KBUILD_BUILD_USER="queen"
-    export KBUILD_BUILD_VERSION="1"
+    export KBUILD_BUILD_VERSION="2"
     export ARCH=arm64
     export SUBARCH=arm64
 
