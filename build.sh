@@ -194,7 +194,7 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-    export KBUILD_BUILD_USER="batman"
+    export KBUILD_BUILD_USER="queen"
     export KBUILD_BUILD_VERSION="1"
     export ARCH=arm64
     export SUBARCH=arm64
