@@ -221,7 +221,7 @@ exports() {
 	fi
 
 	if [ $LTO = "1" ];then
-		export LD=ld.lld
+	export LD=ld.lld
         export LD_LIBRARY_PATH=$TC_DIR/lib
 	fi
 
