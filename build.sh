@@ -55,9 +55,9 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=Electro-Wizard
-JENIS=HMP
-VARIAN=LV
+NAMA=perf
+JENIS=eas
+VARIAN=thirteen
 
 # Build Type
 BUILD_TYPE="Nightly"
@@ -140,7 +140,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning toolchain ||"
-		git clone --depth=1 https://github.com/Kneba/venom-clang clang
+		git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
@@ -194,11 +194,10 @@ setversioning() {
 ##--------------------------------------------------------------##
 
 exports() {
-	export KBUILD_BUILD_USER="queen"
-    export KBUILD_BUILD_HOST="18ded16aaef9"
+    export KBUILD_BUILD_USER="queen"
     export KBUILD_BUILD_VERSION="1"
-	export ARCH=arm64
-	export SUBARCH=arm64
+    export ARCH=arm64
+    export SUBARCH=arm64
 
 	if [ $COMPILER = "clang" ]
 	then
@@ -408,7 +407,7 @@ gen_zip() {
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
-	sed -i "s/kernel.made=.*/kernel.made=Tiktod/g" anykernel.sh
+	sed -i "s/kernel.made=.*/kernel.made=Kneba/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
 	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
