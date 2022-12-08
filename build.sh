@@ -55,8 +55,8 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=perf
-JENIS=eas
+NAMA=TheOneMemory
+JENIS=EAS
 VARIAN=thirteen
 
 # Build Type
