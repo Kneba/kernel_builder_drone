@@ -55,9 +55,9 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=TheOneMemory
-JENIS=EAS
-VARIAN=thirteen
+NAMA=[thirteen]TheOneMemory
+JENIS=Hayzel
+VARIAN=EAS
 
 # Build Type
 BUILD_TYPE="Nightly"
@@ -171,7 +171,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 		GCC32_DIR=$KERNEL_DIR/gcc32
 
 	msg "|| Cloning Anykernel ||"
-        git clone https://github.com/Tiktodz/Anykernel3.git -b eas AnyKernel3
+        git clone https://github.com/Kneba/AnyKernel3 -b eas AnyKernel3
 
 	if [ $BUILD_DTBO = 1 ]
 	then
